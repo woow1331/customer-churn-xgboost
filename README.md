@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #  Customer Churn Prediction Project (XGBoost + Feature Engineering)
 
 ##  Project Overview
@@ -48,3 +49,7 @@ Top influential features:
 ---
 
 >  Built to support churn reduction strategies in real-world scenarios.
+=======
+# customer-churn-xgboost
+Churn prediction project using XGBoost and feature engineering.
+>>>>>>> cb096c9fc31c8f1031decd9de82df0fcb40d09f2
