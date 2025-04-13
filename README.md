@@ -1,6 +1,6 @@
-# 📉 Customer Churn Prediction Project (XGBoost + Feature Engineering)
+#  Customer Churn Prediction Project (XGBoost + Feature Engineering)
 
-## 📌 Project Overview
+##  Project Overview
 This project predicts customer churn based on the **Telco Customer Churn Dataset**.  
 Using a full ML pipeline with `XGBoost`, we handle class imbalance, evaluate model performance (AUC 0.82), and interpret predictions through feature importance.
 
@@ -8,21 +8,21 @@ Using a full ML pipeline with `XGBoost`, we handle class imbalance, evaluate mod
 
 ---
 
-## 📁 Dataset
+##  Dataset
 
-- 📍 Source: [Kaggle - Telco Customer Churn](https://www.kaggle.com/datasets/blastchar/telco-customer-churn)
-- 📊 7,000+ customer records
-- 🎯 Target variable: `Churn` (Yes/No)
+-  **Source:** [Kaggle - Telco Customer Churn](https://www.kaggle.com/datasets/blastchar/telco-customer-churn)
+-  7,000+ customer records
+-  **Target variable:** `Churn` (Yes/No)
 
 ---
 
-## 🔧 Preprocessing Workflow
+##  Preprocessing Workflow
 
 1. Dropped `customerID` (non-informative)
 2. Split columns into numerical & categorical
 3. Used `ColumnTransformer`:
-   - 🔢 Standardised numerical columns
-   - 🔤 One-hot encoded categorical columns (`drop="first"`)
+   -  Standardised numerical columns
+   -  One-hot encoded categorical columns (`drop="first"`)
 
 ```python
 preprocessor = ColumnTransformer([
@@ -33,7 +33,7 @@ preprocessor = ColumnTransformer([
 
 ---
 
-## ⚖️ Why Use `scale_pos_weight`?
+##  Why Use `scale_pos_weight`?
 
 The dataset is **imbalanced** — most customers do not churn.  
 Without weighting, the model overpredicts "No Churn" and misses real churners.
@@ -47,7 +47,7 @@ This significantly **boosted recall for class 1**, improving overall effectivene
 
 ---
 
-## 📊 Model Comparison
+##  Model Comparison
 
 | Variant              | Precision (churn) | Recall (churn) | AUC  |
 |----------------------|------------------|----------------|------|
@@ -55,6 +55,8 @@ This significantly **boosted recall for class 1**, improving overall effectivene
 | **With weighting**   | **0.53**         | **0.67**       | **0.82** |
 
 > ✅ Trade-off: Slight drop in precision, big gain in recall — a good trade for retention strategies.
+
+![ROC Curve](assets/comparison.png)
 
 ---
 
@@ -78,7 +80,7 @@ pipeline_weighted.fit(X_train, y_train)
 ## 📈 Evaluation Results
 
 - **Accuracy**: ~78%
-- **Recall (churn)**: ~0.67 ✅
+- **Recall (churn)**: ~0.67 
 - **Confusion Matrix**: Increased true positives for churners
 - **AUC Score**: `0.82` → strong overall classification performance
 
@@ -100,13 +102,7 @@ Top influential features:
 
 ---
 
-## 📊 External Dashboard
-
-🔗 [Interactive Tableau Dashboard](https://public.tableau.com/app/profile/yourname/viz/SuperstoreDashboard)
-
----
-
-## 🧠 Conclusion
+##  Conclusion
 
 - Adjusting for class imbalance **improved churn recall by ~37%**
 - Feature analysis reveals business drivers of churn
@@ -116,13 +112,13 @@ Top influential features:
 
 ## 🧰 Skills Demonstrated
 
-- ✅ Data preprocessing (`StandardScaler`, `OneHotEncoder`)
-- ✅ ML pipeline construction (`Pipeline`, `ColumnTransformer`)
-- ✅ XGBoost modeling + tuning
-- ✅ Model evaluation (precision, recall, ROC, AUC)
-- ✅ Interpretability (feature importance)
-- ✅ Data storytelling & presentation
+-  Data preprocessing (`StandardScaler`, `OneHotEncoder`)
+-  ML pipeline construction (`Pipeline`, `ColumnTransformer`)
+-  XGBoost modeling + tuning
+-  Model evaluation (precision, recall, ROC, AUC)
+-  Interpretability (feature importance)
+-  Data storytelling & presentation
 
 ---
 
-> 🚀 Built to support churn reduction strategies in real-world scenarios.
+>  Built to support churn reduction strategies in real-world scenarios.
